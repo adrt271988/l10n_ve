@@ -43,8 +43,9 @@ class StockPicking(osv.osv):
             context = {}
         data = super(StockPicking, self).action_invoice_create(
             cursor, user, ids, journal_id, group, type, context)
-        picking_id = data.keys()[0]
-        invoice_id = data[picking_id]
+        #~ picking_id = data.keys()[0]
+        #~ invoice_id = data[picking_id]
+        invoice_id = data[0]
         invoice_brw = self.pool.get('account.invoice').browse(cursor, user,
                                                               invoice_id)
         invoice_line_obj = self.pool.get('account.invoice.line')

@@ -39,6 +39,7 @@
         "l10n_ve_fiscal_requirements",
         "product",
         "report_webkit",
+        "base_action_rule",
     ],
     'demo': [
         'demo/l10n_ve_islr_withholding_demo.xml',
