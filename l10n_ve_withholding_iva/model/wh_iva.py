@@ -27,6 +27,7 @@ import time
 
 from openerp.addons import decimal_precision as dp
 from openerp import models, fields, api, exceptions, _
+from openerp.osv import osv
 
 
 class AccountWhIvaLineTax(models.Model):
@@ -65,7 +66,8 @@ class AccountWhIvaLineTax(models.Model):
 
     @api.multi
     @api.depends('amount', 'wh_vat_line_id.wh_iva_rate')
-    def _get_amount_ret(self, cr, uid, ids, fieldname, args, context=None):
+    #~ def _get_amount_ret(self, cr, uid, ids, fieldname, args, context=None):
+    def _get_amount_ret(self):
         """ Return withholding amount
         """
         for record in self:
@@ -138,10 +140,13 @@ class AccountWhIvaLine(models.Model):
 
     @api.multi
     @api.depends('tax_line.amount_ret', 'tax_line.base')
-    def _amount_all(self, cr, uid, ids, fieldname, args, context=None):
+    #~ def _amount_all(self, cr, uid, ids, fieldname, args, context=None):
+    def _amount_all(self):
         """ Return amount total each line
         """
         for rec in self:
+            if not rec.invoice_id:
+                raise osv.except_osv(_("Warning"),_("There is no Supplier Invoice!"))
             if rec.invoice_id.type not in 'in_refund':
                 rec.amount_tax_ret = sum(l.amount_ret for l in rec.tax_line)
                 rec.base_ret = sum(l.base for l in rec.tax_line)
