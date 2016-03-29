@@ -545,18 +545,12 @@ msgstr ""
 #. module: l10n_ve_withholding_islr
 #: code:addons/l10n_ve_withholding_islr/model/islr_wh_doc.py:74
 #, python-format
-msgid ""
-"I couldn't find a journal to execute the Witholding ISLR\n"
+msgid "I couldn't find a journal to execute the Witholding ISLR\n"
 "                automatically, please create one in Accounting > "
 "Configuration > Journals, contact\n"
 "                to the account manager if you don't have access to this "
 "menu.!!!"
-msgstr ""
-"No pude encontrar un Diario para ejecutar la Retención ISLR\n"
-"                  automaticamente, por favor crear uno en Contabilidad > "
-"Configuración > Diarios. Contacte"
-"                 al gerente de contabilidad si no tiene acceso a este"
-"menu.!!!"
+msgstr "No pude encontrar un Diario para ejecutar la Retención ISLR automaticamente, por favor crear uno en Contabilidad > Configuración > Diarios. Contacte al gerente de contabilidad si no tiene acceso a este menu.!!!"
 
 #. module: l10n_ve_withholding_islr
 #: field:islr.wh.concept,name:0
