@@ -131,7 +131,7 @@ msgstr ""
 #. module: l10n_ve_withholding_islr
 #: help:account.invoice,islr_wh_doc_id:0
 msgid "Document Income Withholding tax generated from this bill"
-msgstr "Documento de retención de ingresos generado por esta factura"
+msgstr "Documento de retención de ISLR generado por esta factura"
 
 #. module: l10n_ve_withholding_islr
 #: model:islr.wh.concept,name:l10n_ve_withholding_islr.islr_wh_concept_fondos_de_comercio_en_el_pais
@@ -145,12 +145,12 @@ msgstr ""
 #: model:ir.ui.menu,name:l10n_ve_withholding_islr.menu_action_wh_islr_supplier
 #: view:islr.wh.doc:0
 msgid "Supplier Income Withholding"
-msgstr "Retención de Ingresos a Proveedor"
+msgstr "Retención ISLR Proveedores"
 
 #. module: l10n_ve_withholding_islr
 #: field:islr.xml.wh.doc,amount_total_ret:0
 msgid "Income Withholding Amount Total"
-msgstr "Monto total de Retención de Ingresos"
+msgstr "Monto total de Retención de ISLR"
 
 #. module: l10n_ve_withholding_islr
 #: model:ir.model,name:l10n_ve_withholding_islr.model_islr_xml_wh_doc
@@ -161,7 +161,7 @@ msgstr "Generar XML"
 #: help:islr.wh.doc.invoices,islr_wh_doc_id:0
 #: help:islr.wh.doc.line,islr_wh_doc_id:0
 msgid "Document Retention income tax generated from this bill"
-msgstr "Documento de retención de ingresos generado por esta factura"
+msgstr "Documento de retención de ISLR generado por esta factura"
 
 #. module: l10n_ve_withholding_islr
 #: help:islr.rates,nature:0
@@ -179,12 +179,12 @@ msgstr "Compañía"
 #. module: l10n_ve_withholding_islr
 #: view:islr.wh.doc:0
 msgid "Search Income Withholding"
-msgstr "Buscar Retención de Ingresos"
+msgstr "Buscar Retención de ISLR"
 
 #. module: l10n_ve_withholding_islr
 #: field:wh.islr.config,account_sale:0
 msgid "Account Income Withholding Sale"
-msgstr "Cuenta de Retención de Ingresos por Ventas"
+msgstr "Cuenta de Retención ISLR por Ventas"
 
 #. module: l10n_ve_withholding_islr
 #: field:islr.xml.wh.line,sustract:0
@@ -271,7 +271,8 @@ msgstr ""
 msgid ""
 "Please fill the Invoice number to continue, without this number will be "
 "imposible form the system make the withholding"
-msgstr "Por favor llene el número de factura para continuar, sin este número será "
+msgstr ""
+"Por favor llene el número de factura para continuar, sin este número será "
 "imposible que el sistema realice la retención"
 
 #. module: l10n_ve_withholding_islr
@@ -331,7 +332,7 @@ msgid ""
 "With \"Concept of Income Withholding\" you can create and manage the concept "
 "of wittholding income. For each concept is to create and manage rates "
 "associated."
-msgstr "Con \"Conceptos de Retención de Ingresos\" puedes cerar y administrar los conceptos"
+msgstr "Con \"Conceptos de Retención de ISLR\" puedes cerar y administrar los conceptos"
 "de retención. Por cada concepto se debe crear una tasa"
 "asociada."
 
@@ -389,7 +390,7 @@ msgstr ""
 #. module: l10n_ve_withholding_islr
 #: view:islr.wh.doc:0
 msgid "Income Withholding Concepts"
-msgstr "Conceptos de Retención de Ingresos"
+msgstr "Conceptos de Retención de ISLR"
 
 #. module: l10n_ve_withholding_islr
 #: help:islr.wh.doc,date_uid:0
@@ -545,11 +546,7 @@ msgstr ""
 #. module: l10n_ve_withholding_islr
 #: code:addons/l10n_ve_withholding_islr/model/islr_wh_doc.py:74
 #, python-format
-msgid "I couldn't find a journal to execute the Witholding ISLR\n"
-"                automatically, please create one in Accounting > "
-"Configuration > Journals, contact\n"
-"                to the account manager if you don't have access to this "
-"menu.!!!"
+msgid "I couldn't find a journal to execute the Witholding ISLR automatically, please create one in Accounting > Configuration > Journals, contact to the account manager if you don't have access to this menu.!!!"
 msgstr "No pude encontrar un Diario para ejecutar la Retención ISLR automaticamente, por favor crear uno en Contabilidad > Configuración > Diarios. Contacte al gerente de contabilidad si no tiene acceso a este menu.!!!"
 
 #. module: l10n_ve_withholding_islr
@@ -590,7 +587,7 @@ msgstr "Concepto de Retención asociado a esta tasa"
 #. module: l10n_ve_withholding_islr
 #: view:islr.wh.doc:0
 msgid "Confirmed Income Withholding"
-msgstr "Retención de Ingresos Confirmada"
+msgstr "Retención de ISLR Confirmada"
 
 #. module: l10n_ve_withholding_islr
 #: help:islr.wh.doc.line,base_amount:0
@@ -687,7 +684,7 @@ msgstr "Acción invalida"
 #. module: l10n_ve_withholding_islr
 #: view:wh.islr.config:0
 msgid "Configure Venezuelan income Withholding"
-msgstr "Configurar Retención de Ingresos Venezolana"
+msgstr "Configurar Retención de ISLR Venezolana"
 
 #. module: l10n_ve_withholding_islr
 #: view:account.invoice:0
@@ -695,7 +692,7 @@ msgstr "Configurar Retención de Ingresos Venezolana"
 #: model:ir.ui.menu,name:l10n_ve_withholding_islr.menu_wh_configuration_islr
 #: view:res.partner:0
 msgid "Income Withholding"
-msgstr "Retención de Ingresos"
+msgstr "Retención de ISLR"
 
 #. module: l10n_ve_withholding_islr
 #: help:islr.xml.wh.line,account_invoice_id:0
@@ -1090,7 +1087,7 @@ msgstr "Doc XML Impuesto sobre la Renta"
 #. module: l10n_ve_withholding_islr
 #: help:res.partner,islr_exempt:0
 msgid "Whether the individual is exempt from income withholding"
-msgstr "Si el individuo está exento de retención de ingresos"
+msgstr "Si el individuo está exento de retención de ISLR"
 
 #. module: l10n_ve_withholding_islr
 #: help:islr.xml.wh.line,base:0
@@ -1285,7 +1282,7 @@ msgstr "Realizado"
 #. module: l10n_ve_withholding_islr
 #: help:wh.islr.config,journal_sale:0
 msgid "Journal for sale operations involving Income Withholding"
-msgstr "Diario de las operaciones de venta que involucran retención de ingresos"
+msgstr "Diario de las operaciones de venta que involucran retención de ISLR"
 
 #. module: l10n_ve_withholding_islr
 #: model:ir.model,name:l10n_ve_withholding_islr.model_account_invoice
@@ -1370,7 +1367,7 @@ msgstr "AGENTE DE RETENCIÓN"
 #. module: l10n_ve_withholding_islr
 #: help:islr.xml.wh.doc,name:0
 msgid "Description about statement of income withholding"
-msgstr "Descripción acerca de la declaración de retención de ingresos"
+msgstr "Descripción acerca de la declaración de retención de ISLR"
 
 #. module: l10n_ve_withholding_islr
 #: view:islr.wh.doc:0
@@ -1528,7 +1525,7 @@ msgstr ""
 #. module: l10n_ve_withholding_islr
 #: help:wh.islr.config,account_purchase:0
 msgid "Account for purchase operations involving Income Withholding"
-msgstr "Cuenta para operaciones de compra que involucran retención de ingresos"
+msgstr "Cuenta para operaciones de compra que involucran retención de ISLR"
 
 #. module: l10n_ve_withholding_islr
 #: field:islr.wh.doc,date_ret:0
@@ -1619,7 +1616,7 @@ msgid ""
 "When True, Supplier Income Withholding will be check and validate "
 "automatically"
 msgstr ""
-"Si esta seleccionado, la retención de ingresos del proveedor será comprobada y validada"
+"Si esta seleccionado, la retención de ISLR del proveedor será comprobada y validada"
 "automaticamente"
 
 #. module: l10n_ve_withholding_islr
@@ -1651,7 +1648,7 @@ msgstr "Referencia de Comprobante"
 #. module: l10n_ve_withholding_islr
 #: help:islr.wh.doc,islr_wh_doc_id:0
 msgid "refers to document income withholding tax generated in the bill"
-msgstr "se refiere al documento de retención de impuestos los ingresos generados en la factura"
+msgstr "se refiere al documento de retención de impuestos los ISLR generados en la factura"
 
 #. module: l10n_ve_withholding_islr
 #: help:islr.xml.wh.line,period_id:0
@@ -1686,7 +1683,7 @@ msgstr "Retenido"
 #: code:addons/l10n_ve_withholding_islr/model/installer.py:106
 #, python-format
 msgid "Journal Income Withholding Sale"
-msgstr "Diario Retención de Ingresos Ventas"
+msgstr "Diario Retención de ISLR Ventas"
 
 #. module: l10n_ve_withholding_islr
 #: view:islr.xml.wh.doc:0
@@ -1746,7 +1743,7 @@ msgstr ""
 #. module: l10n_ve_withholding_islr
 #: field:islr.xml.wh.doc,xml_ids:0
 msgid "XML Document Lines"
-msgstr "Líneas de documuento XML"
+msgstr "Líneas de documento XML"
 
 #. module: l10n_ve_withholding_islr
 #: model:islr.wh.concept,name:l10n_ve_withholding_islr.islr_wh_concept_pagos_propietarios_animales_carrera_premios
@@ -1772,7 +1769,7 @@ msgstr "Retención ISLR Automática"
 #. module: l10n_ve_withholding_islr
 #: help:wh.islr.config,account_sale:0
 msgid "Account for sale operations involving Income Withholding"
-msgstr "Cuenta para operaciones de venta que involucran retención de ingresos"
+msgstr "Cuenta para operaciones de venta que involucran retención de ISLR"
 
 #. module: l10n_ve_withholding_islr
 #: view:islr.wh.doc:0
