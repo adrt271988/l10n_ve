@@ -897,7 +897,7 @@ msgstr "Documento Borrador de XML generado"
 #. module: l10n_ve_withholding_islr
 #: view:islr.wh.doc:0
 msgid "Invoices to Be Withheld"
-msgstr "Facturas a retener"
+msgstr "Facturas sujetas a retención"
 
 #. module: l10n_ve_withholding_islr
 #: view:islr.xml.wh.doc:0
