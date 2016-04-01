@@ -210,13 +210,13 @@ class AccountInvoice(osv.osv):
                         _('Global taxes defined, but they are not in invoice'
                           ' lines !'))
                 base = compute_taxes[key]['base']
-                if float_compare(abs(base - tax.base),
-                                 company_currency.rounding,
-                                 precision_digits=precision) == 1:
-                    raise osv.except_osv(
-                        _('Warning!'),
-                        _('Tax base different!\nClick on compute to update'
-                          ' the tax base.'))
+                #~ if float_compare(abs(base - tax.base),   ########## Comentado para funcionamiento de retencion AKR
+                                 #~ company_currency.rounding,
+                                 #~ precision_digits=precision) == 1:
+                    #~ raise osv.except_osv(
+                        #~ _('Warning!'),
+                        #~ _('Tax base different!\nClick on compute to update'
+                          #~ ' the tax base.'))
                 for key in compute_taxes:
                     if key not in tax_key:
                         raise osv.except_osv(
