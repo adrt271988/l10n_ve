@@ -30,6 +30,7 @@
                             </td>
                             <td>
                                 <para style="TITULOCENTER">COMPROBANTE DE RETENCION DE IMPUESTO SOBRE LA RENTA</para>
+                                <para style="TITULOCENTER">Efectuada según Decreto 1808</para>
                             </td>
                             <td>
                                 <para style="TITULOCENTER"></para>
@@ -49,7 +50,8 @@
 
                         <tr>
                             <td>
-                                <para style="TCENTER"></para>
+                                <para style="TCENTER"><b>Período Fiscal</b>
+                                </para>
                             </td>
                             <td>
                                 <para style="TCENTER"> <b>Fecha de Retención</b>
@@ -62,7 +64,10 @@
                         </tr>
                         <tr>
                             <td>
-                                <para style="TCENTER"></para>
+                                <para style="TCENTER">
+                                    <b>AÑO:</b>
+                                    <b>MES:</b>
+                                </para>
                             </td>
                             <td>
                                 <para style="TCENTER">
