@@ -132,7 +132,7 @@ class TxtIva(models.Model):
         return True
 
     @api.multi
-    def check_txt_ids(self, cr, uid, ids, context=None):
+    def check_txt_ids(self):
         """ Check that txt_iva has lines to process."""
         for awi in self:
             if not awi.txt_ids:
@@ -149,7 +149,7 @@ class TxtIva(models.Model):
         self.write({'state': 'confirmed'})
         return True
 
-    @api.multi
+    @api.one
     def action_generate_lines_txt(self):
         """ Current lines are cleaned and rebuilt
         """
@@ -157,7 +157,7 @@ class TxtIva(models.Model):
         voucher_obj = self.env['account.wh.iva']
         txt_iva_obj = self.env['txt.iva.line']
         vouchers = []
-        txt_brw = self.browse()[0]
+        txt_brw = self
         txt_ids = txt_iva_obj.search([('txt_id', '=', txt_brw.id)])
         if txt_ids:
             txt_iva_obj.unlink(txt_ids)
@@ -167,6 +167,7 @@ class TxtIva(models.Model):
                 ('date_ret', '>=', txt_brw.date_start),
                 ('date_ret', '<=', txt_brw.date_end),
                 ('period_id', '=', txt_brw.period_id.id),
+                #~ ('state', '=', 'confirmed'),
                 ('state', '=', 'done'),
                 ('type', 'in', ['in_invoice', 'in_refund'])])
         else:
@@ -176,7 +177,6 @@ class TxtIva(models.Model):
                 ('period_id', '=', txt_brw.period_id.id),
                 ('state', '=', 'done'),
                 ('type', 'in', ['out_invoice', 'out_refund'])])
-
         for voucher in vouchers:
             acc_part_id = rp_obj._find_accounting_partner(voucher.partner_id)
             for voucher_lines in voucher.wh_lines:
