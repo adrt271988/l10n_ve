@@ -15,9 +15,9 @@
                 <tree string="Withholding Lines">
                     <button name="load_taxes" string="Load Taxes" type="object" icon="gtk-ok" colspan="2" help="Click on this button to ensure the invoice related compute correctly taxes for this line of withholding, it is necesary looking to allow manually force if your are not agreed with automatic computation."/>
                     <field name="name"/>
-                    <field 
-                        name="invoice_id" 
-                        on_change="invoice_id_change(invoice_id)" 
+                    <field
+                        name="invoice_id"
+                        on_change="invoice_id_change(invoice_id)"
                         domain="[('state', '=', 'open'), ('wh_iva', '=', False), ('type', '=', parent.type), '|', ('partner_id','=',parent.partner_id), ('partner_id','child_of',parent.partner_id)]"
                         />
                     <field name="supplier_invoice_number"/>
@@ -38,9 +38,9 @@
                     <notebook>
                         <page string="Withheld Invoice">
                             <group colspan="4">
-                            <field 
-                                name="invoice_id" 
-                                on_change="invoice_id_change(invoice_id)" 
+                            <field
+                                name="invoice_id"
+                                on_change="invoice_id_change(invoice_id)"
                                 domain="[('state', '=', 'open'), ('wh_iva', '=', False), ('type', '=', parent.type), '|', ('partner_id','=',parent.partner_id), ('partner_id','child_of',parent.partner_id)]"
                                 />
                                 <field name="supplier_invoice_number"/>
@@ -145,7 +145,7 @@
             <field name="name">account.wh.iva.form</field>
             <field name="model">account.wh.iva</field>
             <field name="arch" type="xml">
-                <form string="Supplier Withholding Vat" version="7.0">
+                <form string="Supplier Withholding Vat">
                     <header>
                         <button colspan="2" name="compute_amount_wh" states="draft" string="Compute Withholding Vat" type="object" icon="terp-stock_format-scientific"/>
                         <button name="wh_iva_confirmed" states="draft" string="Confirm" icon="gtk-go-forward"/>
@@ -159,9 +159,9 @@
                         <field name="journal_id" select="2" domain="[('type','=','iva_purchase')]"/>
                         <field name="type"/>
                         <field name="code"/>
-                        <field 
-                            name="partner_id" 
-                            on_change="onchange_partner_id(type, partner_id, period_id, fortnight)" 
+                        <field
+                            name="partner_id"
+                            on_change="onchange_partner_id(type, partner_id, period_id, fortnight)"
                             domain="[('supplier','=',True),('parent_id','=',False)]"/>
                         <field name="third_party_id" domain="[('is_company','=',False),('id','!=',partner_id)]"/>
                         <field name="currency_id"/>
@@ -214,9 +214,9 @@
                         <field name="journal_id" select="2" domain="[('type','=','iva_sale')]"/>
                         <field name="type" select="2"/>
                         <field name="code" select="1"/>
-                        <field 
-                            name="partner_id" 
-                            on_change="onchange_partner_id(type,partner_id)" 
+                        <field
+                            name="partner_id"
+                            on_change="onchange_partner_id(type,partner_id)"
                             domain="[('wh_iva_agent','=',True), ('customer','=',True), ('parent_id','=',False)]"/>
                         <field name="third_party_id" domain="[('is_company','=',False),('id','!=',partner_id)]"/>
                         <field name="currency_id"/>
@@ -238,8 +238,8 @@
                         <page string="Withholding">
                             <field colspan="4" name="wh_lines" nolabel="1" widget="one2many_list"/>
                             <group col="2" colspan="2">
-                               
-<!--                               
+
+<!--
  <field name="amount_base_ret"/>-->
 <!--                                <field name="total_tax_ret"/>-->
 <!--                            <field name="tot_amount_base_wh"/> -->
@@ -255,7 +255,7 @@
                 </form>
             </field>
         </record>
-        
+
 
         <record model="ir.actions.act_window" id="action_account_wh_iva_customer">
             <field name="name">Customer Vat Withholding</field>

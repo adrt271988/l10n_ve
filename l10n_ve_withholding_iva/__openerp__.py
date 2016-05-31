@@ -39,6 +39,7 @@
     'data': [
         'security/wh_iva_security.xml',
         'security/ir.model.access.csv',
+        'report/reports.xml',
         'report/withholding_vat_report.xml',
         'wizard/wizard_retention_view.xml',
         'wizard/wizard_wh_nro_view.xml',
