@@ -101,7 +101,7 @@
                             <button name="compute_amount_wh" states="draft" string="Compute Income Withholding" type="object" icon="terp-stock_format-scientific"/>
                             <button name="act_confirm" string="Confirmed" states="draft" icon="gtk-go-forward"/>
                             <button name="act_done" string="Done" states="confirmed" icon="gtk-execute"/>
-                            <button name="%(voucher_report_withholding_islr)d" string="Print Income Withholding" states="done" colspan="3" type="action" icon="gtk-execute"/>
+                            <button name="" string="Print Income Withholding" states="done" colspan="3" type="action" icon="gtk-execute"/>
                             <button name="act_cancel" string="Cancel" states="draft,progress,confirmed,done" icon="gtk-cancel"/>
                             <button name="act_draft" colspan="2" string="Set to draft" states="cancel" icon="gtk-go-forward"/>
                         <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,done" statusbar_colors="{&quot;confirmed&quot;:&quot;blue&quot;}"/>
@@ -233,7 +233,7 @@
                             <button name="compute_amount_wh" states="draft" string="Compute Income Withholding" type="object" icon="terp-stock_format-scientific"/>
                             <button name="act_confirm" string="Confirmed" states="draft" icon="gtk-go-forward"/>
                             <button name="act_done" string="Done" states="confirmed" icon="gtk-execute"/>
-                            <button name="%(voucher_report_withholding_islr)d" string="Print Income Withholding" states="done" colspan="3" type="action" icon="gtk-execute"/>
+                            <button name="" string="Print Income Withholding" states="done" colspan="3" type="action" icon="gtk-execute"/>
                             <button name="act_cancel" string="Cancel" states="draft,progress,confirmed,done" icon="gtk-cancel"/>
                             <button name="act_draft" colspan="2" string="Set to draft" states="cancel" icon="gtk-go-forward"/>
                         <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,done" statusbar_colors="{&quot;confirmed&quot;:&quot;blue&quot;}"/>
