@@ -217,11 +217,13 @@ class AccountInvoice(osv.osv):
                         #~ _('Warning!'),
                         #~ _('Tax base different!\nClick on compute to update'
                           #~ ' the tax base.'))
-                for key in compute_taxes:
-                    if key not in tax_key:
-                        raise osv.except_osv(
-                            _('Warning!'),
-                            _('Taxes are missing!\nClick on compute button.'))
+
+                # Validacion comentada, no se entiene (Alexander Rodriguez 30/07/2016)
+                # for key in compute_taxes:
+                #     if key not in tax_key:
+                #         raise osv.except_osv(
+                #             _('Warning!'),
+                #             _('Taxes are missing!\nClick on compute button.'))
 
 
 class AccountInvoiceTax(osv.osv):
