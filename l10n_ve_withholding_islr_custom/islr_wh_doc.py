@@ -224,7 +224,7 @@ class AkrIslrWhDoc(osv.osv):
                                         store=True, string='Número de Comprobante', help="Referencia de Comprobante"),
     }
 
-class AkrAccountInvoiceRefund(osv.osv):
+class AkrAccountInvoiceRefund(osv.osv_memory):
     
     _inherit="account.invoice.refund"
 
