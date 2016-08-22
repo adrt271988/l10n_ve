@@ -6,114 +6,174 @@
         <div class="col-xs-12">
             <div class="col-xs-3">
                 <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % company.logo"
-                    style="max-height: 100px; max-weight:80px"/>
-                <br/><br/>
-                <div><strong>DATOS DEL AGENTE DE RETENCIÓN</strong></div>
-                <div><strong>Razón Social:</strong>&#160;<span t-field="o.company_id.name"/></div>
-                <div><strong>Registro Único de Información Fiscal (RIF):</strong>&#160;<span t-esc="split_string(o.company_id.vat,2)"/></div>
-                <div><strong>Domicilio Fiscal:</strong>&#160;<p t-esc="get_address(o.company_id.street,o.company_id.street2,o.company_id.city,o.company_id.state_id.name,o.company_id.country_id.name)"/></div>
+                    style="max-height: 80px; max-weight:60px;float:right"/>
+            </div>
+            <div class="col-xs-9">
+                <table style="width:100%; border:1px solid #000000;">
+                    <tr>
+                        <th style="font-size:16px;text-align:center;" > COMPROBANTE DE RETENCIÓN DE IMPUESTO SOBRE LA RENTA</th>
+                    </tr>
+                     <tr>
+                        <th style="font-size:9px;text-align:center;" > Efectuada según Decreto 1808 </th>
+                    </tr>
+                </table>
+                <table style="margin:0px;width:100%; border:1px solid #000000;">
+                    <tr>
+                        <th style="width:35%;border-right:1px solid #000000;font-size:14px;background-color:#CECECE;text-align:center;"><div align="center">N° DE COMPROBANTE</div></th>
+                        <th style="width:35%;border-right:1px solid #000000;font-size:14px;background-color:#CECECE;text-align:center;"><div align="center">FECHA  EMISIÓN</div></th>
+                        <th style="width:30%;border-right:1px solid #000000;font-size:14px;background-color:#CECECE;text-align:center;"><div align="center">PERIODO FISCAL</div></th>
+                    </tr>
+                    <tr style="border-top:1px solid #000000;">
+                        <th style="border-right:1px solid #000000;"><div align="center"><span t-esc="split_string(o.number,-8)"/></div></th>
+                       <th style="border-right:1px solid #000000;" ><div align="center"><span t-field="o.date_uid"/></div></th>
+                       <th style="border-right:1px solid #000000;"><div align="center">
+                      <div align="center">AÑO:&#160;<span t-esc="get_fiscalyear(o.period_id,'y')"/> / MES:&#160;<span t-esc="get_fiscalyear(o.period_id,'m')"/></div>
+
+                       </div></th>
+                    </tr>
+                </table>
                 <br/>
-                <div><strong>DATOS DEL SUJETO RETENIDO</strong></div>
-                <div><strong>Razón Social:</strong>&#160;<span t-field="o.partner_id.name"/></div>
-                <div><strong>Registro Único de Información Fiscal (RIF):</strong>&#160;<span t-esc="split_string(o.partner_id.vat,2)"/></div>
-                <div><strong>Domicilio Fiscal:</strong>&#160;<p t-esc="get_address(o.partner_id.street,o.partner_id.street2,o.partner_id.city,o.partner_id.state_id.name,o.partner_id.country_id.name)"/></div>
-                <br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                <div>
+                <br/>
+            </div>
+
+            <table style="width:100%; border:1px solid #000000;">
+                <thead>
+                    <tr>
+                        <th style="text-align:center;font-size:16px;"><strong>DATOS DEL AGENTE DE RETENCION</strong></th>
+                    </tr>
+                </thead>
+            </table>
+            <table style="width:100%; border:1px solid #000000;">
+                <tr>
+                    <th style="width:30%;border-right:1px solid #000000;font-size:14px;background-color:#CECECE;"><div align="center">NOMBRE O RAZON SOCIAL</div></th>
+                    <th style="width:30%;border-right:1px solid #000000;font-size:10px;background-color:#CECECE;"><div align="center">Registro Único de Informaciób Fiscal (RIF)</div></th>
+                    <th style="width:40%;border-right:1px solid #000000;font-size:14px;background-color:#CECECE;"><div align="center">DIRECCION FISCAL</div></th>
+                </tr>
+                <tr style="border-top:1px solid #000000;">
+                    <th style="border-right:1px solid #000000;font-size:12px;"><div align="center"><span t-field="o.company_id.name"/></div></th>
+                    <th style="border-right:1px solid #000000;font-size:12px;"><div align="center"><p t-esc="split_string(o.company_id.vat,2)"/></div></th>
+                    <th style="border-right:1px solid #000000;font-size:12px;"><div align="center"><div><p t-esc="get_address(o.company_id.street,o.company_id.street2,o.company_id.city,o.company_id.state_id.name,o.company_id.country_id.name)"/></div></div>
+                    </th>
+                </tr>
+            </table>
+            <br/>
+
+            <table style="width:100%; border:1px solid #000000;">
+                <thead>
+                    <tr>
+                        <th style="text-align:center;font-size:16px;"><strong>DATOS DEL SUJETO RETENIDO</strong></th>
+                    </tr>
+                </thead>
+            </table>
+            <table style="width:100%; border:1px solid #000000;">
+                <tr>
+                    <th style="width:30%;border-right:1px solid #000000;font-size:14px;background-color:#CECECE;"><div align="center">NOMBRE O RAZON SOCIAL</div></th>
+                    <th style="width:30%;border-right:1px solid #000000;font-size:10px;background-color:#CECECE;"><div align="center">Registro Único de Informaciób Fiscal (RIF)</div></th>
+                    <th style="width:40%;border-right:1px solid #000000;font-size:14px;background-color:#CECECE;"><div align="center">DIRECCION FISCAL</div></th>
+                </tr>
+                <tr style="border-top:1px solid #000000;">
+                    <th style="border-right:1px solid #000000;font-size:12px;"><div align="center"><span t-field="o.partner_id.name"/></div></th>
+                    <th style="border-right:1px solid #000000;font-size:12px;"><div align="center"><p t-esc="split_string(o.partner_id.vat,2)"/></div></th>
+                    <th style="border-right:1px solid #000000;font-size:12px;"><div align="center"><div><p t-esc="get_address(o.partner_id.street,o.partner_id.street2,o.partner_id.city,o.partner_id.state_id.name,o.partner_id.country_id.name)"/></div></div>
+                    </th>
+                </tr>
+            </table>
+            <br/>
+
+            <table style="width:100%; border:1px solid #000000;">
+                <tr >
+                    <th style="width:6%;border-right:1px solid #000000;font-size:12px;background-color:#CECECE;" align="center"><div align="center">No</div></th>
+                    <th style="width:7%;border-right:1px solid #000000;font-size:12px;background-color:#CECECE;" align="center"><div align="center">Fecha de Documento</div></th>
+                    <th style="width:7%;border-right:1px solid #000000;font-size:12px;background-color:#CECECE;" align="center"><div align="center">Número Documento</div></th>
+                    <th style="width:7%;border-right:1px solid #000000;font-size:12px;background-color:#CECECE;" align="center"><div align="center">Nro Control</div></th>
+                    <th style="width:7%;border-right:1px solid #000000;font-size:12px;background-color:#CECECE;" align="center"><div align="center">Nro Documento Afectado</div></th>
+
+                    <th style="width:8%;border-right:1px solid #000000;font-size:12px;background-color:#CECECE;" align="center"><div align="center">Tipo Doc.</div></th>
+                    <th style="width:8%;border-right:1px solid #000000;font-size:12px;background-color:#CECECE;" align="center"><div align="center">Concepto</div></th>
+                    <th style="width:8%;border-right:1px solid #000000;font-size:12px;background-color:#CECECE;" align="center"><div align="center">Monto Objeto Retención</div></th>
+                    <th style="width:7%;border-right:1px solid #000000;font-size:12px;background-color:#CECECE;" align="center"><div align="center">% Retención</div></th>
+                    <th style="width:7%;border-right:1px solid #000000;font-size:12px;background-color:#CECECE;" align="center"><div align="center">Sustraendo</div></th>
+                    <th style="width:5%;border-right:1px solid #000000;font-size:12px;background-color:#CECECE;" align="center"><div align="center">Monto Retenido</div></th>
+                </tr>
+                <t t-set="total_invoices" t-value="0.00"/>
+                <t t-set="total_base" t-value="0.00"/>
+                <t t-set="total_wo_withholding" t-value="0.00"/>
+                <t t-set="total_amount" t-value="0.00"/>
+                <tr style="border-top:1px solid #000000;" t-foreach="o.concept_ids" t-as="c">
+                    <t t-set="total_invoices" t-value="total_invoices+c.invoice_id.amount_total"/>
+                    <th style="border-right:1px solid #000000;font-size:10px;"><div align="center"><span t-esc="c_index+1"/></div></th>
+                    <th style="border-right:1px solid #000000;font-size:10px;"><div align="center"><span t-field="c.invoice_id.date_document" t-field-options="{&quot;format&quot;: &quot;dd-MM-yyyy&quot;}"/></div></th>
+                    <th style="border-right:1px solid #000000;font-size:10px;"><div align="center"><span t-field="c.invoice_id.supplier_invoice_number"/></div></th>
+                    <th style="border-right:1px solid #000000;font-size:10px;"><div align="center"><span t-field="c.invoice_id.nro_ctrl"/></div></th>
+                    <th t-if="c.invoice_id.parent_id" style="border-right:1px solid #000000;font-size:10px;"><div align="center"><span t-field="c.invoice_id.parent_id.number"/></div></th>
+                    <th t-if="not c.invoice_id.parent_id" style="border-right:1px solid #000000;font-size:10px;"></th>
+
+                    <th style="border-right:1px solid #000000;font-size:10px;"><div align="center"><span t-esc="get_doc_type(c.invoice_id)"/></div></th>
+                    <th style="border-right:1px solid #000000;font-size:10px;"><div align="center"><span t-field="c.concept_id.name"/></div></th>
+                    <th style="border-right:1px solid #000000;font-size:10px;"><div align="right"><span t-field="c.base_amount"/><t t-set="total_base" t-value="total_base+c.base_amount"/></div></th>
+                    <th style="border-right:1px solid #000000;font-size:10px;"><div align="right"><span t-field="c.retencion_islr"/>%</div></th>
+                    <th style="border-right:1px solid #000000;font-size:10px;"><div align="right"><span t-field="c.subtract"/></div></th>
+                    <th style="border-right:1px solid #000000;font-size:10px;"><div align="right"><span t-field="c.amount"/><t t-set="total_amount" t-value="total_amount+c.amount"/></div></th>
+                </tr>
+                <tr style="border-top:1px solid #000000;" >
+                    <th ></th>
+                    <th ></th>
+                    <th ></th>
+                    <th ></th>
+                    <th ></th>
+                    <th ></th>
+                    <th style="border-right:1px solid #000000;font-size:10px;"></th>
+                    <th style="font-size:12px;text-align:center;">TOTALES</th>
+                    <th style="border-left:1px solid #000000;" class="text-right"><span t-raw="formatLang(total_base)"/></th>
+                    <th style="border-left:1px solid #000000;font-size:10px;"></th>
+                    <th style="border-left:1px solid #000000;" class="text-right"><strong><span t-raw="formatLang(total_amount)"/></strong></th>
+                </tr>
+                <tr style="border-top:1px solid #000000;" >
+                    <th ></th>
+                    <th ></th>
+                    <th ></th>
+                    <th ></th>
+                    <th ></th>
+                    <th ></th>
+                    <th ></th>
+                    <th ></th>
+                    <th style="border-right:1px solid #000000;font-size:10px;"></th>
+                    <th style="font-size:12px;text-align:center;background-color:#CECECE;">TOTAL DOCUMENTO (INCLUYENDO IVA)</th>
+                    <th style="border-left:1px solid #000000;" class="text-right"><span t-raw="formatLang(total_invoices)"/></th>
+                </tr>
+                <tr style="border-top:1px solid #000000;" >
+                    <th ></th>
+                    <th ></th>
+                    <th ></th>
+                    <th ></th>
+                    <th ></th>
+                    <th ></th>
+                    <th ></th>
+                    <th ></th>
+                    <th style="border-right:1px solid #000000;font-size:10px;"></th>
+                    <th style="font-size:12px;text-align:center;background-color:#CECECE;">MONTO NETO A PAGAR</th>
+                    <th style="border-left:1px solid #000000;" class="text-right"><span t-raw="formatLang(total_invoices - total_amount)" /></th>
+                </tr>
+            </table>
+            <br/><br/>
+
+            <div class="col-xs-12">
+                <div class="col-xs-6">
+                    <img t-if="company.signature_logo" t-att-src="'data:image/png;base64,%s' % company.signature_logo"
+                        style="max-height: 100px; max-weight:100px;"/>
+                </div>
+
+                <div class="col-xs-6" style="margin-top:30px;float:right;">
                     <span align="center">____________________________________</span>
                     <br/>
                     <br/>
-                    <span align="left">FIRMA Y SELLO DEL AGENTE DE RETENCIÓN</span><br/><br/>
-                    <span align="left">Enviado a: <span t-field="o.partner_id.email"></span></span>
+                    <span align="center">FIRMA Y SELLO DEL SUJETO RETENIDO</span><br/><br/>
+                    <span align="center">Enviado a: <span t-field="o.partner_id.email"></span></span>
                 </div>
             </div>
-            <div class="col-xs-9">
-                <h3 align="center"><strong>COMPROBANTE DE RETENCIÓN DE IMPUESTO SOBRE LA RENTA</strong></h3>
-                <h4 align="center"><u>Efectuada según Decreto 1808</u></h4>
-                <br/>
-                <div class="col-xs-4">
-                    <div align="center"><strong>Periodo Fiscal</strong></div>
-                    <div align="center">AÑO:&#160;<span t-esc="get_fiscalyear(o.period_id,'y')"/></div>
-                    <div align="center">MES:&#160;<span t-esc="get_fiscalyear(o.period_id,'m')"/></div>
-                </div>
-                <div class="col-xs-4">
-                    <div align="center"><strong>Fecha de Retención</strong></div>
-                    <div align="center"><span t-field="o.date_uid" t-field-options="{&quot;format&quot;: &quot;dd-MM-yyyy&quot;}" /></div>
-                </div>
-                <div class="col-xs-4">
-                    <div align="center"><strong>No. de Comprobante</strong></div>
-                    <div align="center"><span t-esc="split_string(o.number,-8)"/></div>
-                </div>
-                <table class="table" style="margin-top:50px;">
-                    <thead>
-                        <tr>
-                            <th>No.</th>
-                            <th>Fecha Documento</th>
-                            <th>Número Documento</th>
-                            <th>Número de Control</th>
-                            <th>Documento Afectado</th>
-                            <th>Tipo Doc.</th>
-                            <th>Concepto</th>
-                            <th class="text-right">Monto Objeto de Retención</th>
-                            <th class="text-right">Monto Exento</th>
-                            <th class="text-right">% Retención</th>
-                            <th class="text-right">Monto Retenido</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <t t-set="total_invoices" t-value="0.00"/>
-                        <t t-set="total_base" t-value="0.00"/>
-                        <t t-set="total_wo_withholding" t-value="0.00"/>
-                        <t t-set="total_amount" t-value="0.00"/>
-                        <tr t-foreach="o.concept_ids" t-as="c">
-                            <t t-set="total_invoices" t-value="total_invoices+c.invoice_id.amount_total"/>
-                            <td><span t-esc="c_index+1"/></td>
-                            <td><span t-field="c.invoice_id.date_document" t-field-options="{&quot;format&quot;: &quot;dd-MM-yyyy&quot;}"/></td>
-                            <td><span t-field="c.invoice_id.supplier_invoice_number"/></td>
-                            <td><span t-field="c.invoice_id.nro_ctrl"/></td>
-                            <td t-if="c.invoice_id.parent_id"><span t-field="c.invoice_id.parent_id.number"/></td>
-                            <td t-if="not c.invoice_id.parent_id"></td>
-                            <td><span t-esc="get_doc_type(c.invoice_id)"/></td>
-                            <td><span t-field="c.concept_id.name"/></td>
-                            <td class="text-right"><span t-field="c.base_amount"/><t t-set="total_base" t-value="total_base+c.base_amount"/></td>
-                            <td class="text-right"><span t-field="c.amount_without_withholding"/><t t-set="total_wo_withholding" t-value="total_wo_withholding+c.amount_without_withholding"/></td>
-                            <td class="text-right"><span t-field="c.retencion_islr"/>%</td>
-                            <td class="text-right"><span t-field="c.amount"/><t t-set="total_amount" t-value="total_amount+c.amount"/></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td class="text-right"><strong>Total:</strong></td>
-                            <td class="text-right"><span t-raw="formatLang(total_base)"/></td>
-                            <td class="text-right"><span t-raw="formatLang(total_wo_withholding)"/></td>
-                            <td></td>
-                            <td class="text-right"><span t-raw="formatLang(total_amount)"/></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="col-xs-4 pull-right">
-                    <table class="table table-condensed">
-                        <tr class="border-black">
-                            <td><strong>Total Incluyendo IVA</strong></td>
-                            <td class="text-right">
-                                <span t-raw="formatLang(total_invoices)"/>
-                            </td>
-                        </tr>
-                        <tr class="border-black">
-                            <td><strong>Total a pagar</strong></td>
-                            <td class="text-right">
-                                 <span t-raw="formatLang(total_invoices + total_amount)" />
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
+            
+
         </div>
-<!--<div style="position:absolute;left:50px;top:560px;width:25%;float:left">-->
-        
     </div>
 </template>
 

@@ -35,6 +35,7 @@ Retenciones ISLR Venezuela
     'depends': ['l10n_ve_withholding_islr','report'],
     'data': [
             'data/akr_withholding_islr_data.xml',
+            'res_company_view.xml',
             'report/islr_wh_doc_report.xml',
             'account_report.xml',
             'islr_wh_doc_view.xml',

@@ -1,8 +1,8 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
+#    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,9 +19,16 @@
 #
 ##############################################################################
 
-import res_company
-import islr_wh_doc
-import report
+import time
+from datetime import date
+from datetime import datetime
+from openerp.report import report_sxw
+from openerp.tools.translate import _
+from openerp.osv import fields, osv
 
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+class IslrResCompany(osv.osv):
+	_inherit = "res.company"
 
+	_columns = {
+		'signature_logo': fields.binary("Sello",help="Sello digital de la compañía"),
+	}
