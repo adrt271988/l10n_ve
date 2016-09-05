@@ -36,9 +36,31 @@ class report_islr_wh_doc(report_sxw.rml_parse):
             'get_fiscalyear': self._get_fiscalperiod,
             'split_string': self._split_string,
             'get_address': self._get_address,
-            'get_doc_type': self._get_doc_type
+            'get_doc_type': self._get_doc_type,
+            'get_base_amount': self._get_base_amount,
+            'get_total_invoices': self._get_total_invoices,
         })
         self.context = context
+
+    def _get_total_invoices(self, obj):
+        inv_total = 0.0
+        refund_total = 0.0
+        for line in obj.concept_ids:
+            if line.invoice_id.type not in ['in_refund','out_refund']:
+                inv_total = line.invoice_id.amount_total
+            else:
+                refund_total = line.invoice_id.amount_total
+        return inv_total - refund_total
+    
+    def _get_base_amount(self, obj):
+        inv_base = 0.0
+        refund_base = 0.0
+        for line in obj.concept_ids:
+            if line.invoice_id.type not in ['in_refund','out_refund']:
+                inv_base = line.base_amount
+            else:
+                refund_base = line.base_amount
+        return inv_base - refund_base
 
     def _get_fiscalperiod(self, period_id, flag):
         res = ""

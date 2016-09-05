@@ -7,7 +7,7 @@
             <field name="inherit_id" ref="base.view_company_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='rml_footer_readonly']" position="after">
-                    <field name="signature_logo" widget="image"/>
+                    <field name="signature_logo"/>
                 </xpath>
             </field>
         </record>

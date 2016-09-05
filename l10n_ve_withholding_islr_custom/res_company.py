@@ -25,10 +25,31 @@ from datetime import datetime
 from openerp.report import report_sxw
 from openerp.tools.translate import _
 from openerp.osv import fields, osv
+from openerp import tools
 
 class IslrResCompany(osv.osv):
-	_inherit = "res.company"
+    _inherit = "res.company"
 
-	_columns = {
-		'signature_logo': fields.binary("Sello",help="Sello digital de la compañía"),
-	}
+    #~ def _get_image(self, cr, uid, ids, name, args, context=None):
+        #~ result = dict.fromkeys(ids, False)
+        #~ for obj in self.browse(cr, uid, ids, context=context):
+            #~ result[obj.id] = tools.image_get_resized_images(obj.signature_logo)
+            #~ print '********',result
+        #~ return result
+#~ 
+    #~ def _set_image(self, cr, uid, id, name, value, args, context=None):
+        #~ return self.write(cr, uid, [id], {'signature_logo': tools.image_resize_image_big(value)}, context=context)
+
+    _columns = {
+        'signature_logo': fields.binary("Sello",help="Sello digital de la compañía"),
+        #~ 'signature_logo_medium': fields.function(_get_image, fnct_inv=_set_image,
+            #~ string="Image (auto-resized to 128x128):", type="binary", multi="_get_image",
+            #~ store = {
+                #~ 'res.company': (lambda self, cr, uid, ids, c={}: ids, ['signature_logo'], 10),
+            #~ }),
+        #~ 'signature_logo_small': fields.function(_get_image, fnct_inv=_set_image,
+            #~ string="Image (auto-resized to 64x64):", type="binary", multi="_get_image",
+            #~ store = {
+                #~ 'res.company': (lambda self, cr, uid, ids, c={}: ids, ['signature_logo'], 10),
+            #~ }),
+    }

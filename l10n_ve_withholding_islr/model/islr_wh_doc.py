@@ -90,7 +90,13 @@ class IslrWhDoc(osv.osv):
         for rete in self.browse(cr, uid, ids, context):
             res[rete.id] = 0.0
             for line in rete.concept_ids:
-                res[rete.id] += line.amount
+                inv_amount = 0.0
+                refund_amount = 0.0
+                if line.invoice_id.type not in ['in_refund','out_refund']:
+                    inv_amount = line.amount
+                else:
+                    refund_amount = line.amount
+                res[rete.id] += inv_amount - refund_amount
         return res
 
     def _get_company(self, cr, uid, context=None):
@@ -570,50 +576,51 @@ class IslrWhDoc(osv.osv):
 
         ut_obj = self.pool.get('l10n.ut')
         for line in ret.invoice_ids:
-            if ret.type in ('in_invoice', 'in_refund'):
-                name = 'COMP. RET. ISLR ' + ret.number + \
-                    ' Doc. ' + (line.invoice_id.supplier_invoice_number or '')
-            else:
-                name = 'COMP. RET. ISLR ' + ret.number + \
-                    ' Doc. ' + (line.invoice_id.number or '')
-            writeoff_account_id = False
-            writeoff_journal_id = False
-            amount = line.amount_islr_ret
-            ret_move = line.invoice_id.ret_and_reconcile(
-                amount, acc_id, period_id, journal_id, writeoff_account_id,
-                period_id, writeoff_journal_id, ret.date_ret, name,
-                line.iwdl_ids, context=context)
+            if not line.move_id:
+                if ret.type in ('in_invoice', 'in_refund'):
+                    name = 'COMP. RET. ISLR ' + ret.number + \
+                        ' Doc. ' + (line.invoice_id.supplier_invoice_number or '')
+                else:
+                    name = 'COMP. RET. ISLR ' + ret.number + \
+                        ' Doc. ' + (line.invoice_id.number or '')
+                writeoff_account_id = False
+                writeoff_journal_id = False
+                amount = line.amount_islr_ret
+                ret_move = line.invoice_id.ret_and_reconcile(
+                    amount, acc_id, period_id, journal_id, writeoff_account_id,
+                    period_id, writeoff_journal_id, ret.date_ret, name,
+                    line.iwdl_ids, context=context)
 
-            if (line.invoice_id.currency_id.id !=
-                    line.invoice_id.company_id.currency_id.id):
-                f_xc = ut_obj.sxc(
-                    cr, uid,
-                    line.invoice_id.company_id.currency_id.id,
-                    line.invoice_id.currency_id.id,
-                    line.islr_wh_doc_id.date_uid)
-                move_obj = self.pool.get('account.move')
-                move_line_obj = self.pool.get('account.move.line')
-                move_brw = move_obj.browse(cr, uid, ret_move['move_id'])
-                for ml in move_brw.line_id:
-                    move_line_obj.write(cr, uid, ml.id, {
-                        'currency_id': line.invoice_id.currency_id.id})
-
-                    if ml.credit:
+                if (line.invoice_id.currency_id.id !=
+                        line.invoice_id.company_id.currency_id.id):
+                    f_xc = ut_obj.sxc(
+                        cr, uid,
+                        line.invoice_id.company_id.currency_id.id,
+                        line.invoice_id.currency_id.id,
+                        line.islr_wh_doc_id.date_uid)
+                    move_obj = self.pool.get('account.move')
+                    move_line_obj = self.pool.get('account.move.line')
+                    move_brw = move_obj.browse(cr, uid, ret_move['move_id'])
+                    for ml in move_brw.line_id:
                         move_line_obj.write(cr, uid, ml.id, {
-                            'amount_currency': f_xc(ml.credit) * -1})
+                            'currency_id': line.invoice_id.currency_id.id})
 
-                    elif ml.debit:
-                        move_line_obj.write(cr, uid, ml.id, {
-                            'amount_currency': f_xc(ml.debit)})
+                        if ml.credit:
+                            move_line_obj.write(cr, uid, ml.id, {
+                                'amount_currency': f_xc(ml.credit) * -1})
 
-            # make the withholding line point to that move
-            rl = {
-                'move_id': ret_move['move_id'],
-            }
-            # lines = [(op,id,values)] escribir en un one2many
-            lines = [(1, line.id, rl)]
-            self.write(cr, uid, [ret.id], {
-                       'invoice_ids': lines, 'period_id': period_id})
+                        elif ml.debit:
+                            move_line_obj.write(cr, uid, ml.id, {
+                                'amount_currency': f_xc(ml.debit)})
+
+                # make the withholding line point to that move
+                rl = {
+                    'move_id': ret_move['move_id'],
+                }
+                # lines = [(op,id,values)] escribir en un one2many
+                lines = [(1, line.id, rl)]
+                self.write(cr, uid, [ret.id], {
+                           'invoice_ids': lines, 'period_id': period_id})
 
         xml_ids = []
         for line in ret.concept_ids:

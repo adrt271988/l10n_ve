@@ -9,6 +9,7 @@
                 <xpath expr="//field[@name='invoice_id']" position="replace">
                     <field name="supplier_invoice_number" string="Factura de Proveedor"/>
                 </xpath>
+                <xpath expr="//field[@name='move_id']" position="replace"/>
             </field>
         </record>
         
@@ -28,6 +29,7 @@
                 <xpath expr="/form/notebook/page/field/tree/field[@name='raw_base_ut']" position="before">
                     <field name="amount_without_withholding"/>
                 </xpath>
+
             </field>
         </record>
         

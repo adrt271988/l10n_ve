@@ -265,6 +265,7 @@ class AkrAccountInvoice(osv.osv):
                 islr_doc_id = row.parent_id.islr_wh_doc_id.id
                 self._create_doc_invoices(cr, uid, row.id, islr_doc_id)
                 wh_doc_obj.compute_amount_wh(cr, uid,[islr_doc_id],context=context)
+                wh_doc_obj.action_move_create(cr, uid, [islr_doc_id], context = context)
         if row.type == 'in_invoice' and \
                 rp_obj._find_accounting_partner(
                     row.company_id.partner_id).islr_withholding_agent:
